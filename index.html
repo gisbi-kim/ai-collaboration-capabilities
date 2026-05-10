@@ -133,12 +133,6 @@ html[data-lang="en"] [data-lang-panel="en"],
 html[data-lang="en"] .en-only {
   display: revert;
 }
-html[data-lang="ko"] .contents-grid.ko-only,
-html[data-lang="en"] .contents-grid.en-only,
-html[data-lang="ko"] .language-switch,
-html[data-lang="en"] .language-switch {
-  display: grid;
-}
 html[data-lang="ko"] .language-switch,
 html[data-lang="en"] .language-switch {
   display: inline-flex;
@@ -162,6 +156,14 @@ html[data-lang="en"] .language-switch {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px 18px;
+}
+.contents-grid.ko-only,
+.contents-grid.en-only {
+  display: none;
+}
+html[data-lang="ko"] .contents-grid.ko-only,
+html[data-lang="en"] .contents-grid.en-only {
+  display: grid;
 }
 .contents a {
   color: var(--ink);
