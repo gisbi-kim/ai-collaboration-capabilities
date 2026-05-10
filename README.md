@@ -1,6 +1,6 @@
 # AI Collaboration Capabilities
 
-This repository hosts a Korean essay-style guide titled **"AI 시대의 4가지 진짜 역량"**.
+This repository hosts a bilingual Korean/English essay-style guide titled **"AI 시대의 4가지 진짜 역량"** / **"Four Real Capabilities in the AI Era"**.
 
 The page argues that the real gap in the AI era is not simple access to tools, but the quality of a person's thinking loop: how they ask, verify, reconstruct, and monitor their own understanding while working with AI.
 
@@ -19,6 +19,7 @@ AI can make answers easier to obtain, but it does not automatically improve judg
 
 ## What The Page Contains
 
+- A global `KO / EN` language selector that switches the title, table of contents, body, and footer together.
 - A high-level explanation of why AI acts more like a thinking amplifier than a simple equalizer.
 - A comparison table between weak and strong AI collaboration habits.
 - Examples of bad questions and better questions.

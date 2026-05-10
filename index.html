@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,6 +92,56 @@ h1 {
 .document-footer a:hover {
   color: var(--accent);
   text-decoration: underline;
+}
+.language-switch {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 20px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.78);
+}
+.lang-toggle {
+  min-width: 48px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 850;
+  cursor: pointer;
+}
+.lang-toggle[aria-pressed="true"] {
+  background: var(--accent-deep);
+  color: #ffffff;
+}
+.lang-toggle:focus-visible {
+  outline: 3px solid rgba(31,75,122,0.28);
+  outline-offset: 2px;
+}
+[data-lang-panel],
+.ko-only,
+.en-only {
+  display: none;
+}
+html[data-lang="ko"] [data-lang-panel="ko"],
+html[data-lang="ko"] .ko-only,
+html[data-lang="en"] [data-lang-panel="en"],
+html[data-lang="en"] .en-only {
+  display: revert;
+}
+html[data-lang="ko"] .contents-grid.ko-only,
+html[data-lang="en"] .contents-grid.en-only,
+html[data-lang="ko"] .language-switch,
+html[data-lang="en"] .language-switch {
+  display: grid;
+}
+html[data-lang="ko"] .language-switch,
+html[data-lang="en"] .language-switch {
+  display: inline-flex;
 }
 .contents {
   margin-top: 28px;
@@ -384,15 +434,26 @@ tbody tr:nth-child(even) td { background: #f8fafc; }
   <main class="article-container">
     <article class="paper">
       <header class="document-header">
-        <h1>AI 시대의 4가지 진짜 역량<br><span>&mdash; 질문, 검수, 재구성, 메타인지</span></h1>
-        <p class="subtitle">문제정의 · 검수 · 재구성 · 메타인지 능력의 의미와 훈련법</p>
-        <div class="doc-meta"><a href="https://gisbi-kim.github.io/">Giseop Kim</a><br><span>작성일: 2026년 5월 10일</span></div>
+        <h1>
+          <span class="ko-only">AI 시대의 4가지 진짜 역량<br><span>&mdash; 질문, 검수, 재구성, 메타인지</span></span>
+          <span class="en-only">Four Real Capabilities in the AI Era<br><span>&mdash; Questioning, Verification, Reconstruction, Metacognition</span></span>
+        </h1>
+        <p class="subtitle">
+          <span class="ko-only">문제정의 · 검수 · 재구성 · 메타인지 능력의 의미와 훈련법</span>
+          <span class="en-only">A practical framework for questioning, verification, reconstruction, and metacognition</span>
+        </p>
+        <div class="doc-meta"><a href="https://gisbi-kim.github.io/">Giseop Kim</a><br><span class="ko-only">작성일: 2026년 5월 10일</span><span class="en-only">Published: May 10, 2026</span></div>
+        <div class="language-switch" aria-label="Language selector">
+          <button class="lang-toggle" type="button" data-set-lang="ko" aria-pressed="true">KO</button>
+          <button class="lang-toggle" type="button" data-set-lang="en" aria-pressed="false">EN</button>
+        </div>
         <nav class="contents" aria-label="문서 목차">
           <div class="contents-label">Contents</div>
-          <div class="contents-grid"><a href="#전체-관점-ai는-평준화-도구가-아니라-증폭기다">1. 전체 관점: AI는 평준화 도구가 아니라 증폭기다</a><a href="#네-가지-핵심-능력의-개요">2. 네 가지 핵심 능력의 개요</a><a href="#문제정의-능력">3. 문제정의 능력</a><a href="#검수-능력">4. 검수 능력</a><a href="#재구성-능력">5. 재구성 능력</a><a href="#메타인지-능력">6. 메타인지 능력</a><a href="#네-능력의-순환-구조">7. 네 능력의 순환 구조</a><a href="#개인-훈련-루틴">8. 개인 훈련 루틴</a><a href="#학생-팀-훈련법">9. 학생·팀 훈련법</a><a href="#평가-루브릭">10. 평가 루브릭</a><a href="#결론">11. 결론</a></div>
+          <div class="contents-grid ko-only"><a href="#전체-관점-ai는-평준화-도구가-아니라-증폭기다">1. 전체 관점: AI는 평준화 도구가 아니라 증폭기다</a><a href="#네-가지-핵심-능력의-개요">2. 네 가지 핵심 능력의 개요</a><a href="#문제정의-능력">3. 문제정의 능력</a><a href="#검수-능력">4. 검수 능력</a><a href="#재구성-능력">5. 재구성 능력</a><a href="#메타인지-능력">6. 메타인지 능력</a><a href="#네-능력의-순환-구조">7. 네 능력의 순환 구조</a><a href="#개인-훈련-루틴">8. 개인 훈련 루틴</a><a href="#학생-팀-훈련법">9. 학생·팀 훈련법</a><a href="#평가-루브릭">10. 평가 루브릭</a><a href="#결론">11. 결론</a></div>
+          <div class="contents-grid en-only"><a href="#whole-view-ai-is-not-an-equalizer-but-an-amplifier">1. Whole view: AI is not an equalizer but an amplifier</a><a href="#overview-of-the-four-core-capabilities">2. Overview of the four core capabilities</a><a href="#questioning-capability">3. Questioning capability</a><a href="#verification-capability">4. Verification capability</a><a href="#reconstruction-capability">5. Reconstruction capability</a><a href="#metacognition-capability">6. Metacognition capability</a><a href="#the-cycle-of-the-four-capabilities">7. The cycle of the four capabilities</a><a href="#individual-training-routine">8. Individual training routine</a><a href="#student-and-team-training">9. Student and team training</a><a href="#evaluation-rubric">10. Evaluation rubric</a><a href="#conclusion">11. Conclusion</a></div>
         </nav>
       </header>
-      <section class="document-body">
+      <section class="document-body" data-lang-panel="ko">
 <aside class="callout hero-callout">
   <div class="callout-label">핵심 명제</div>
   <p class="callout-main">AI는 능력을 자동으로 평준화하는 도구가 아니라, 기존의 사고력과 판단력을 증폭하는 도구다.</p><p>같은 AI를 써도 결과가 달라지는 이유는 프롬프트 기술보다 문제정의, 검수, 재구성, 메타인지 능력의 차이에 있다.</p>
@@ -626,11 +687,273 @@ tbody tr:nth-child(even) td { background: #f8fafc; }
   <p class="callout-main">AI가 모두에게 주어지면 답을 빨리 얻는 능력은 흔해진다. 그다음부터 귀해지는 것은 좋은 문제를 만들고, 그럴듯한 답을 버릴 줄 알고, 쓸 만한 답을 자기 구조로 재탄생시키는 사람이다.</p>
 </aside>
       </section>
+      <section class="document-body" data-lang-panel="en">
+<aside class="callout hero-callout">
+  <div class="callout-label">Core Thesis</div>
+  <p class="callout-main">AI is not a tool that automatically equalizes capability. It is a tool that amplifies existing thinking and judgment.</p><p>When people get different results from the same AI, the difference is usually not prompt technique. It is the difference in questioning, verification, reconstruction, and metacognition.</p>
+</aside>
+<h2 class="purpose-heading">Purpose</h2>
+<p>This document organizes a conceptual framework for judging and developing the capabilities of collaborators, students, researchers, and practitioners in the AI era. The focus is not simply whether someone can “use AI,” but whether they can build a better thinking loop with AI.</p>
+<h2 id="whole-view-ai-is-not-an-equalizer-but-an-amplifier">1. Whole view: AI is not an equalizer but an amplifier</h2>
+<p>When AI becomes widely available, it can look as if everyone’s capability will become similar. In practice, that is unlikely. <strong>AI is not a device that automatically turns low-resolution thinking into high-level thinking.</strong> Instead, it makes the user’s resolution of problem framing, quality of questions, ability to doubt answers, and ability to reshape outputs for their own goals more visible.</p>
+<p>A fitness analogy makes this easier to see. A person who already has good movement sense, recovery habits, discipline, and self-checking ability gets better results from the same workout program and support tools. Someone without basic conditioning and understanding may still get limited results even with good equipment. AI is similar. The tool may be the same, but what a person notices, rejects, and creates through that tool differs greatly.</p>
+<p>Therefore, the core gap in the AI era is less about “tool access” and more about the quality of the thinking loop. People go further when they define the problem well, verify AI-generated answers, reconstruct them into useful structures, and check the gaps in their own understanding.</p>
+<aside class="callout">
+  <div class="callout-label">One-line Summary</div>
+  <p class="callout-main">A strong AI user is not someone who gets answers quickly, but someone who uses AI-generated answers to clarify their own problem and judgment criteria.</p>
+</aside>
+<h2 id="overview-of-the-four-core-capabilities">2. Overview of the four core capabilities</h2>
+<div class="table-wrap cols-4 capability-table">
+<table>
+  <thead><tr><th><strong>Capability</strong></th><th><strong>Core question</strong></th><th class="bad-text"><strong>Weak pattern</strong></th><th class="good-text"><strong>Strong pattern</strong></th></tr></thead>
+  <tbody>
+<tr><td>Questioning</td><td>What problem should be solved?</td><td class="bad-text">Throws an ambiguous task at AI and expects a plausible answer.</td><td class="good-text">Defines the goal, context, constraints, success criteria, and failure conditions first.</td></tr>
+<tr><td>Verification</td><td>Can this answer be trusted?</td><td class="bad-text">Assumes that fluent writing means the answer is correct.</td><td class="good-text">Questions and checks the answer at factual, logical, contextual, and strategic levels.</td></tr>
+<tr><td>Reconstruction</td><td>How should this answer be reshaped for my purpose?</td><td class="bad-text">Copies the AI answer almost as-is or only polishes the wording.</td><td class="good-text">Breaks the answer into hypotheses, experiments, proposals, or paper structures.</td></tr>
+<tr><td>Metacognition</td><td>Do I understand this, or am I mistaking fluency for understanding?</td><td class="bad-text">Believes they understand because AI gave an answer.</td><td class="good-text">Distinguishes what they know from what they do not know, and adjusts their thinking strategy.</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>These four capabilities are not separate techniques. They form one cycle.</strong> Good problem definition enables better questions. Good verification makes the answer trustworthy. Good reconstruction turns the output into something that belongs to the user. Metacognition monitors the whole process and improves the next problem definition.</p>
+<h2 id="questioning-capability">3. Questioning capability</h2>
+<h3 id="meaning-questioning">3.1 Meaning</h3>
+<p>Questioning capability is not the ability to write pretty prompts. It is the ability to decide <strong>what should be solved</strong>, why it matters, what constraints apply, what counts as a <strong>good answer</strong>, and what should intentionally be left out this time.</p>
+<p>Asking AI, “Give me a good research idea,” “Summarize this paper,” or “Write this like a proposal” is closer to throwing work over the wall than defining a problem. Strong problem definition narrows the space AI must answer within and states the evaluation criteria clearly.</p>
+<h3 id="bad-questions-and-good-questions">3.2 Bad questions and good questions</h3>
+<div class="table-wrap cols-2">
+<table>
+  <thead><tr><th class="bad-text"><strong>Bad question</strong></th><th class="good-text"><strong>Good question</strong></th></tr></thead>
+  <tbody>
+<tr><td class="bad-text">“Give me a good research idea on this topic.”</td><td class="good-text">“Find gaps where novelty could be established against existing methods A, B, and C. Separate experimental novelty, theoretical novelty, and application novelty, and propose baseline experiments that could refute each claim.”</td></tr>
+<tr><td class="bad-text">“Summarize this paper.”</td><td class="good-text">“Separate this paper into its core claim, evidence, hidden assumptions, limitations, and elements we could reuse in our own research.”</td></tr>
+<tr><td class="bad-text">“Fix this code.”</td><td class="good-text">“Separate the likely causes of segmentation faults, possible API misuse, missing edge cases, and conditions that should be covered by unit tests.”</td></tr>
+  </tbody>
+</table>
+</div>
+<h3 id="training-problem-card">3.3 Training: a seven-sentence problem card</h3>
+<p>Before turning on AI, write the following seven sentences. This reveals questioning capability quickly. In student mentoring or team collaboration, it is often better to inspect the quality of this card before evaluating the final output.</p>
+<ol>
+<li>What problem am I trying to solve?</li>
+<li>Why does this problem matter?</li>
+<li>Why are existing methods insufficient?</li>
+<li>What changes if this succeeds?</li>
+<li>Where is the largest failure risk?</li>
+<li>What criteria distinguish a good answer?</li>
+<li>What scope will I intentionally not cover this time?</li>
+</ol>
+<aside class="callout">
+  <div class="callout-label">Good problem-definition format</div>
+  <p class="callout-main">“In the current problem A, existing method B fails because of condition C. We propose hypothesis D, verify it with method E, and define success by criterion F.”</p><p>If you cannot write this sentence, the problem definition is not sharp enough yet.</p>
+</aside>
+<h2 id="verification-capability">4. Verification capability</h2>
+<h3 id="meaning-verification">4.1 Meaning</h3>
+<p>Verification capability is not the ability to fix typos or polish sentences. It is the ability to judge whether an AI answer is factually correct, logically consistent, appropriate for the context, and actually executable.</p>
+<p>Verification matters in the AI era because <strong>AI can produce wrong answers with great fluency.</strong> People with weak thinking often fail to detect AI’s errors and then absorb plausible mistakes into their own outputs.</p>
+<h3 id="four-levels-of-verification">4.2 Four levels of verification</h3>
+<div class="table-wrap cols-3">
+<table>
+  <thead><tr><th><strong>Level</strong></th><th><strong>Verification question</strong></th><th><strong>Example</strong></th></tr></thead>
+  <tbody>
+<tr><td>Fact check</td><td>Is this information actually correct?</td><td>Do the paper, author, equation, dataset, number, and citation match the original source?</td></tr>
+<tr><td>Logic check</td><td>Does the claim follow from the evidence?</td><td>Is correlation being presented as causation? Is the conclusion stronger than the evidence?</td></tr>
+<tr><td>Context check</td><td>Does this fit my problem and conditions?</td><td>Is it feasible given our equipment, data, budget, paper target, or project constraints?</td></tr>
+<tr><td>Strategy check</td><td>Is this direction worth following?</td><td>Are we missing a more fundamental question? Is this worth doing now?</td></tr>
+  </tbody>
+</table>
+</div>
+<h3 id="training-verification-note">4.3 Training: Verification Note</h3>
+<p>When submitting an AI-assisted result, attach a verification note instead of only submitting the result. This separates copy-paste output from real thinking.</p>
+<ol>
+<li>Which facts in this answer did I verify directly?</li>
+<li>Which claims remain unverified?</li>
+<li>What is the riskiest assumption?</li>
+<li>If this answer is wrong, where would it fail first?</li>
+<li>What weakness would an opposing view attack?</li>
+<li>What is the smallest experiment that could verify this?</li>
+</ol>
+<p>In a research meeting, it is much better to ask “Which claim did you verify directly?”, “Where would this answer break if it were wrong?”, and “What is the strongest objection?” than to ask “What did AI say?”</p>
+<h2 id="reconstruction-capability">5. Reconstruction capability</h2>
+<h3 id="meaning-reconstruction">5.1 Meaning</h3>
+<p>Reconstruction capability is not the ability to make AI’s answer look nicer. It is the ability to <strong>take apart the material AI provides</strong>, rearrange it for a purpose, and <strong>turn it into a higher-level structure</strong>.</p>
+<p>AI answers usually arrive as prose, but real research and work do not move forward through prose alone. Strong users turn AI-generated sentences into hypotheses, causal structures, experimental designs, decision structures, proposal structures, and paper structures.</p>
+<h3 id="examples-of-reconstruction">5.2 Examples of reconstruction</h3>
+<div class="table-wrap cols-2">
+<table>
+  <thead><tr><th><strong>Raw material from AI</strong></th><th><strong>Reconstructed result</strong></th></tr></thead>
+  <tbody>
+<tr><td>Ten research ideas</td><td>Group them into three families by underlying mechanism, then define the core hypothesis and counterexample for each family.</td></tr>
+<tr><td>Paper summary</td><td>Rearrange it into claim, evidence, novelty, limitation, and elements applicable to our research.</td></tr>
+<tr><td>Proposal draft</td><td>Rewrite it into problem, gap, hypothesis, approach, risk, and impact.</td></tr>
+<tr><td>Code-fix suggestion</td><td>Separate bug cause, patch, edge case, unit test, and regression risk.</td></tr>
+  </tbody>
+</table>
+</div>
+<h3 id="training-multiple-structures">5.3 Training: convert the same content into multiple structures</h3>
+<p>To build reconstruction capability, practice converting the same content into multiple representational forms. This trains you to separate content from format.</p>
+<ol>
+<li>Turn one paper into a five-sentence summary.</li>
+<li>Turn the same paper into a one-page proposal structure.</li>
+<li>Turn the core idea into an equation, algorithm flow, or experimental flow.</li>
+<li>Rewrite it around failure cases.</li>
+<li>Rewrite it as a reviewer rebuttal.</li>
+<li>Rewrite it in the language of an industry project proposal.</li>
+<li>Rewrite it as a one-year PhD research plan.</li>
+</ol>
+<h3 id="compression-expansion-training">5.4 Compression-expansion training</h3>
+<ol>
+<li>Compress a 1,000-character explanation into one sentence.</li>
+<li>Expand that sentence into three research aims.</li>
+<li>Convert each aim into an experimental plan.</li>
+<li>Convert the experimental plan into a risk-mitigation table.</li>
+<li>Compress the whole thing back into a 30-second elevator pitch.</li>
+</ol>
+<p>Repeating this process develops the ability to handle the same content at multiple resolutions. Strong researchers are usually good at this kind of resolution switching.</p>
+<h2 id="metacognition-capability">6. Metacognition capability</h2>
+<h3 id="meaning-metacognition">6.1 Meaning</h3>
+<p>Metacognition is, simply put, the ability to think about one’s own thinking. It is the ability to monitor and adjust what you know, what you do not know, what strategy you are using, and whether that strategy is actually working.</p>
+<p>Metacognition matters in the AI era because using AI easily creates the illusion that <strong>“I understood it.”</strong> The output may look plausible, while the user has not actually built judgment criteria or explanatory ability inside themselves.</p>
+<h3 id="weak-and-strong-metacognition">6.2 Weak and strong metacognition</h3>
+<div class="table-wrap cols-2">
+<table>
+  <thead><tr><th class="bad-text"><strong>Weak metacognition</strong></th><th class="good-text"><strong>Strong metacognition</strong></th></tr></thead>
+  <tbody>
+<tr><td class="bad-text">Thinks they understand because AI gave an answer.</td><td class="good-text">Checks whether they can explain the core idea without AI.</td></tr>
+<tr><td class="bad-text">Feels that fluent writing must be correct.</td><td class="good-text">Looks for the answer’s assumptions and counterexamples.</td></tr>
+<tr><td class="bad-text">Thinks work is done because an output exists.</td><td class="good-text">Checks what their thinking learned while producing the output.</td></tr>
+<tr><td class="bad-text">Feels reassured by the AI answer.</td><td class="good-text">Uses the AI answer to update their questions and criteria.</td></tr>
+  </tbody>
+</table>
+</div>
+<h3 id="training-before-and-after-ai">6.3 Training: write self-predictions before and after using AI</h3>
+<p>Before asking AI, write down your own thinking first. Only then can you compare how your thinking changed after seeing the AI answer.</p>
+<p class="list-label"><strong>Before using AI:</strong></p>
+<ul>
+<li>What answer do I expect?</li>
+<li>What part do I not know?</li>
+<li>Which concept is confusing me?</li>
+<li>What direction currently seems most likely?</li>
+</ul>
+<p class="list-label"><strong>After using AI:</strong></p>
+<ul>
+<li>What differed from my expectation?</li>
+<li>What did I learn from the AI answer?</li>
+<li>What part can I still not explain?</li>
+<li>Which part sounded plausible but remains suspicious?</li>
+<li>What question should I ask better next time?</li>
+</ul>
+<h3 id="reconstruct-without-ai">6.4 Reconstruct without AI</h3>
+<p>After receiving an explanation from AI, do not copy it immediately. Close the window and rewrite it in your own words. If you cannot answer the questions below, it is not yours yet.</p>
+<ul>
+<li>Can I explain this concept within three minutes?</li>
+<li>Can I derive the equation or logical flow on a board?</li>
+<li>Can I give a counterexample?</li>
+<li>Can I turn it into an experimental design?</li>
+<li>Can I teach it to a junior colleague?</li>
+</ul>
+<h2 id="the-cycle-of-the-four-capabilities">7. The cycle of the four capabilities</h2>
+<aside class="callout">
+  <div class="callout-label">Thinking loop with AI</div>
+  <p class="callout-main">Problem definition -> AI use -> verification -> reconstruction -> metacognition -> problem redefinition</p><p>Strong users repeat this loop and return with better questions than they started with. Weak users stop at question -> answer -> copy.</p>
+</aside>
+<p>What matters is <strong>not how long you use AI, but whether your own thinking is updated while using it.</strong> Skill does not improve just because you receive many answers from AI. It improves when you compare answers, doubt them, reconstruct them, and discover your own ignorance.</p>
+<h2 id="individual-training-routine">8. Individual training routine</h2>
+<div class="table-wrap cols-3">
+<table>
+  <thead><tr><th><strong>Step</strong></th><th><strong>Action</strong></th><th><strong>Purpose</strong></th></tr></thead>
+  <tbody>
+<tr><td>Step 1</td><td>Write your own thinking for five minutes before using AI.</td><td>Create a basis for comparison with the AI answer.</td></tr>
+<tr><td>Step 2</td><td>Ask AI for an approach structure, not just an answer.</td><td>Remain a thinker, not a consumer.</td></tr>
+<tr><td>Step 3</td><td>Ask opposing questions about the AI answer.</td><td>Catch fluent errors and hidden assumptions.</td></tr>
+<tr><td>Step 4</td><td>Rewrite AI-generated sentences into your own structure.</td><td>Turn the output into a product of your own thinking.</td></tr>
+<tr><td>Step 5</td><td>Write a five-line reflection after the task.</td><td>Improve the next question and judgment criteria.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>A five-line reflection can be very simple:</p>
+<ul>
+<li>Where AI helped today</li>
+<li>Where AI was wrong or weak</li>
+<li>Where my initial thinking was wrong</li>
+<li>What I should ask better next time</li>
+<li>What new judgment criterion I gained</li>
+</ul>
+<h2 id="student-and-team-training">9. Student and team training</h2>
+<p>When training students or teams, the important thing is to change the evaluation method, not merely whether AI is allowed. <strong>If only the final output is evaluated, people learn how to package work with AI.</strong> <strong>If the process is evaluated, people learn how to think.</strong></p>
+<h3 id="four-artifacts-to-attach">9.1 Four artifacts worth attaching to submissions</h3>
+<div class="table-wrap cols-3">
+<table>
+  <thead><tr><th><strong>Item</strong></th><th><strong>Content</strong></th><th><strong>Evaluation point</strong></th></tr></thead>
+  <tbody>
+<tr><td>Problem Card</td><td>The problem I defined, its context, constraints, and success criteria</td><td>Is the problem sharp enough?</td></tr>
+<tr><td>AI Interaction Log</td><td>The core questions asked to AI and why those questions changed</td><td>Was AI used as a thinking partner, not a simple search engine?</td></tr>
+<tr><td>Verification Note</td><td>Facts directly checked, uncertain claims, and risky assumptions</td><td>Was the plausible answer actually verified?</td></tr>
+<tr><td>Reconstruction Output</td><td>A newly structured output built from the AI answer</td><td>Was the AI answer reconstructed for the user’s own purpose?</td></tr>
+  </tbody>
+</table>
+</div>
+<h3 id="questions-to-ask-in-meetings">9.2 Questions to ask in meetings</h3>
+<ul>
+<li>How did your problem definition change after reading the AI answer?</li>
+<li>Which part of the AI answer did you discard?</li>
+<li>Which claim did you verify directly?</li>
+<li>If this answer is wrong, where do you think it is wrong?</li>
+<li>What is the strongest objection?</li>
+<li>How would you turn this into the next experiment or decision?</li>
+</ul>
+<p>If someone can answer these questions, they are using AI well. If not, they are probably being pulled along by AI rather than using it.</p>
+<h2 id="evaluation-rubric">10. Evaluation rubric</h2>
+<div class="table-wrap cols-2">
+<table>
+  <thead><tr><th><strong>Level</strong></th><th><strong>Characteristics</strong></th></tr></thead>
+  <tbody>
+<tr><td class="bad-text">Lower level</td><td class="bad-text">Asks AI broad and vague questions. Takes the result almost as-is. Verification stays at the level of “it sounds plausible.” Does not check whether they understand.</td></tr>
+<tr><td class="bad-text">Middle level</td><td class="bad-text">Questions are somewhat specific. The AI answer is edited. But hidden assumptions, failure conditions, and alternative structures are not examined well.</td></tr>
+<tr><td class="good-text">Upper level</td><td class="good-text">Structures the problem first. Uses AI as a thinking partner from multiple perspectives. Verifies the output at factual, logical, contextual, and strategic levels. Reconstructs the answer for the user’s own purpose.</td></tr>
+<tr><td class="good-text">Highest level</td><td class="good-text">Uses AI to evolve the problem itself. Returns with better questions than the original ones. Creates alternatives AI did not suggest and turns uncertainty into verifiable experiments or decisions.</td></tr>
+  </tbody>
+</table>
+</div>
+<h2 id="conclusion">11. Conclusion</h2>
+<p>The capability needed in the AI era is not only the ability to “make AI do work.” More precisely, it is the ability to <strong>use AI-generated outputs to see the structure of one’s own problem more clearly, discover gaps in one’s thinking, and reconstruct the result into better judgment</strong>.</p>
+<p>The future gap is likely to come not from the amount of knowledge someone has, but from the resolution with which they see problems, the depth with which they doubt answers, the ability to rebuild structures, and the sensitivity with which they detect their own ignorance.</p>
+<aside class="callout final-callout">
+  <div class="callout-label">Final Sentence</div>
+  <p class="callout-main">When AI is available to everyone, getting answers quickly becomes common. What becomes rare is the person who can make good problems, discard plausible answers, and rebirth useful answers into their own structure.</p>
+</aside>
+      </section>
       <footer class="document-footer">
-        <span><a href="https://gisbi-kim.github.io/">Giseop Kim</a> · 작성일: 2026년 5월 10일</span>
-        <a class="back-to-top" href="#top">Back to top ↑</a>
+        <span><a href="https://gisbi-kim.github.io/">Giseop Kim</a> · <span class="ko-only">작성일: 2026년 5월 10일</span><span class="en-only">Published: May 10, 2026</span></span>
+        <a class="back-to-top" href="#top"><span class="ko-only">맨 위로 ↑</span><span class="en-only">Back to top ↑</span></a>
       </footer>
     </article>
   </main>
+<script>
+(() => {
+  const titles = {
+    ko: "AI 시대의 4가지 진짜 역량 - 질문, 검수, 재구성, 메타인지",
+    en: "Four Real Capabilities in the AI Era - Questioning, Verification, Reconstruction, Metacognition"
+  };
+  const normalizeLanguage = (value) => value === "en" ? "en" : "ko";
+  const params = new URLSearchParams(window.location.search);
+  const initialLanguage = normalizeLanguage(params.get("lang") || localStorage.getItem("ai-collaboration-language") || document.documentElement.dataset.lang);
+
+  const setLanguage = (language) => {
+    const nextLanguage = normalizeLanguage(language);
+    document.documentElement.dataset.lang = nextLanguage;
+    document.documentElement.lang = nextLanguage;
+    document.title = titles[nextLanguage];
+    localStorage.setItem("ai-collaboration-language", nextLanguage);
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.setLang === nextLanguage));
+    });
+  };
+
+  document.querySelectorAll("[data-set-lang]").forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+  });
+
+  setLanguage(initialLanguage);
+})();
+</script>
 </body>
 </html>
